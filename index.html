@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Smoothie Hut </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <!-- Navigation -->
+        <nav>
+            <img src="https://fiverr-res.cloudinary.com/t_main1,q_auto,f_auto/gigs2/289792646/original/966f49c137fee989b33f400bc221f21136854f81.jpg" alt="" >
+            <div class="navigation">
+                <ul>
+                    <li> <a class="active" href="#"> HOME</a> </li>
+                    <li> <a href="menu.html"> MENU</a> </li>
+                    <li> <a href="shop.html"> SHOP </a> </li>
+                    <li> <a href="contactus.html"> CONTACT US</a> </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Home -->
+        <section id="home">
+            <h1> Chill With The Cold Shakes.! </h1>
+            <p> Seeing is believing, so you ought to show the world your fanciful milkshake! 
+                Enjoy the milky and shaky heavenly delight!  </p>
+                 <div class="btn">
+                    <a class="blue" href="menu.html"> DELICIOUS MENU</a>
+                    <a class="yellow" href="#"> SHOPLETS</a>
+                 </div>
+                 </section>
+                 <br> 
+
+        <!-- features -->
+        <section id="features">
+            <h2> LETS SINK IN THE OCEAN OF MILK</h2> &nbsp; &nbsp; <br>
+            <h3> "Indulge in Liquid Delight: Our Milkshake Shop's Specialties" </h3>
+            <div class="fea-base"> 
+                <div class="fea-box">
+                    <h2> Interactive Menu </h2>
+                    <p> "A well-organized and visually appealing menu that showcases a wide range of milkshake flavors and toppings." </p>
+                </div>
+                <div class="fea-box">
+                    <h2> Image Galleries </h2>
+                    <p> "High-quality images of the milkshakes." </p>
+                </div>
+                <div class="fea-box">
+                    <h2> Online Gift Cards </h2>
+                    <p> "Ongoing promotions, loyalty programs, and special exciting offers " </p>
+                </div>
+                <div class="fea-box">
+                    <h2> Special Offers and Promotions </h2>
+                    <p> "Purchase digital gift cards, which can be a great gift option." </p>
+                </div>
+            </div>
+        </section>
+
+    <section id="registration">
+        <head>
+            <title>Registration Form</title>
+            <style>
+              .container {
+                background-color: rgb(225, 233, 231);
+                font-size: 22px;
+                font-weight: bold;
+                width: 500px;
+              }
+              fieldset {
+                border: 3px solid rgb(9, 9, 9);
+                border-radius: 5px;
+              }
+              input {
+                height: 22px;
+                background-color: rgb(234, 234, 237);
+              }
+              #btn {
+                text-align: center;
+                font-size: large;
+                height: 30px;
+                width: 100px;
+                background-color: rgb(92, 108, 138);
+              }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <fieldset>
+                <legend> CONNECT WITH US </legend>
+                <br> 
+                <form id="registrationForm" onsubmit="return validateForm()" method="post">
+                  <label for="firstName">First Name:</label>
+                  <input type="text" id="firstName" name="firstName">
+                  <span class="error" id="firstNameError"></span><br><br>
+          
+                  <label for="lastName">Last Name:</label>
+                  <input type="text" id="lastName" name="lastName">
+                  <span class="error" id="lastNameError"></span><br><br>
+          
+                  <label for="email">Email:</label>
+                  <input type="text" id="email" name="email">
+                  <span class="error" id="emailError"></span><br><br>
+          
+                  <label for="password">Password:</label>
+                  <input type="password" id="password" name="password">
+                  <span class="error" id="passwordError"></span><br><br>
+          
+                  <label for="mobile">Mobile Number:</label>
+                  <input type="text" id="mobile" name="mobile">
+                  <span class="error" id="mobileError"></span><br><br>
+          
+                  <label for="address">Address:</label>
+                  <textarea id="address" name="address"></textarea>
+                  <span class="error" id="addressError"></span><br><br>
+          
+                  <a href="submit.html"><button  value="SUBMIT">SUBMIT</button></a>
+              </form>
+          
+              </fieldset>
+            </div>
+    
+
+    </body>
+    <script>
+      function validateForm() {
+          let isValid = true;
+          const firstName = document.getElementById("firstName").value;
+          const lastName = document.getElementById("lastName").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const mobile = document.getElementById("mobile").value;
+          const address = document.getElementById("address").value;
+
+          const firstNameError = document.getElementById("firstNameError");
+          const lastNameError = document.getElementById("lastNameError");
+          const emailError = document.getElementById("emailError");
+          const passwordError = document.getElementById("passwordError");
+          const mobileError = document.getElementById("mobileError");
+          const addressError = document.getElementById("addressError");
+
+          // Reset error messages
+          firstNameError.textContent = "";
+          lastNameError.textContent = "";
+          emailError.textContent = "";
+          passwordError.textContent = "";
+          mobileError.textContent = "";
+          addressError.textContent = "";
+
+          // Validate First Name
+          if (firstName.trim() === "" || firstName.length < 6 || !/^[A-Za-z]+$/.test(firstName)) {
+              firstNameError.textContent = "First name should contain 6 characters";
+              isValid = false;
+          }
+          if (lastName.trim() === "") {
+              lastNameError.textContent = "Last Name is required";
+              isValid = false;
+          }
+
+          // Validate Email
+          const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+          if (!email.match(emailPattern)) {
+              emailError.textContent = "Invalid email address, it should contain @ symbol";
+              isValid = false;
+          }
+
+          // Validate Password
+          if (password.length < 6) {
+              passwordError.textContent = "Password must be at least 6 characters long";
+              isValid = false;
+          }
+
+          // Validate Mobile Number
+          const mobilePattern = /^[0-9]{10}$/;
+          if (!mobile.match(mobilePattern)) {
+              mobileError.textContent = "Invalid mobile number (10 digits)";
+              isValid = false;
+          }
+
+          // Validate Address
+          if (address.trim() === "") {
+              addressError.textContent = "Address is required";
+              isValid = false;
+          }
+          if(isValid){
+              alert("Form submitted successfully!!!");
+              window.location.href="submit.html";
+              
+          }
+
+         return false;
+      }
+  </script>
+
+</html>
